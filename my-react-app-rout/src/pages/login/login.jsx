@@ -5,11 +5,9 @@ const Login = () => {
     const [password, setPassword] = useState("");
 
     const handleSubmit = (event) => {
-        event.preventDefault(); // Evita que el formulario se envíe automáticamente
-        // Aquí puedes enviar los datos al servidor
+        event.preventDefault(); 
         console.log("Correo electrónico:", email);
         console.log("Contraseña:", password);
-        // Lógica para enviar datos al servidor...
     };
 
     const handleEmailChange = (event) => {
