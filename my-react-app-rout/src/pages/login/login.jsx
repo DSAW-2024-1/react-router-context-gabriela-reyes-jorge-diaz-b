@@ -1,21 +1,24 @@
-import React, { useState } from "react";
+// Login.jsx
+import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
+import { useAuth } from '../../context/AuthContext'; // Importa el contexto de autenticación
 
 const Login = () => {
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
+    const { login } = useAuth(); // Usa la función de login del contexto de autenticación
+    const navigate = useNavigate();
 
     const handleSubmit = (event) => {
         event.preventDefault(); 
-        console.log("Correo electrónico:", email);
-        console.log("Contraseña:", password);
-    };
-
-    const handleEmailChange = (event) => {
-        setEmail(event.target.value);
-    };
-
-    const handlePasswordChange = (event) => {
-        setPassword(event.target.value);
+        // Verifica el correo y la contraseña (en este caso, se hardcodean para simplificar el ejemplo)
+        if (email === 'admin@admin.com' && password === 'admin') {
+            // Iniciar sesión y redirigir al usuario a /home
+            login();
+            navigate('/home');
+        } else {
+            alert('Correo o contraseña incorrectos');
+        }
     };
 
     return (
@@ -45,3 +48,4 @@ const Login = () => {
 };
 
 export default Login;
+
