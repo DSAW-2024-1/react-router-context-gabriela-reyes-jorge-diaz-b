@@ -17,7 +17,7 @@ import Login from './pages/login/login.jsx';
 const router = createBrowserRouter([
   {
     path: "/",
-    element: <App />,
+    element: <Login />,
   },
   {
     path: "/home",
